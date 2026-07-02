@@ -24,10 +24,10 @@ class Herozion < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "herozion-macos-amd64/herozion-macos-amd64" => "herozion"
-    elsif OS.mac?
-      bin.install "herozion-macos-arm64/herozion-macos-arm64" => "herozion"
+    if OS.mac?
+      arch_binary = Hardware::CPU.intel? ? "herozion-macos-amd64" : "herozion-macos-arm64"
+      libexec.install Dir["*"]
+      bin.install_symlink libexec/arch_binary => "herozion"
     else
       bin.install "herozion-linux-amd64" => "herozion"
     end
