@@ -5,26 +5,28 @@
 class Herozion < Formula
   desc "Security audit and performance analysis CLI tool for developers"
   homepage "https://herozion.io"
-  version "1.2.19"
+  version "1.2.21"
   license "Proprietary"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.19/herozion-macos-amd64.tar.gz"
-      sha256 "31d3c7cdb70ef5ddb01294685f5964e00c0a58e5eb4f8a87e89b0a134dc75edd"
+      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.21/herozion-macos-amd64.tar.gz"
+      sha256 "d2bba8f4e864d0a3cb7311e0d0cd4a81b7a555ab8d22744240f8dd51c93c0abd"
     else
-      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.19/herozion-macos-arm64.tar.gz"
-      sha256 "9a04354b02ace79015ea3e7c4aa7a60b6f78e55dd0916ccb100cfdd4eb8a9a7e"
+      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.21/herozion-macos-arm64.tar.gz"
+      sha256 "88c3c7068816511cce9e8ab5674ba9d19324969e7fd1f6a3ebe6687be3be7bd5"
     end
   end
 
   on_linux do
-    url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.19/herozion-linux-amd64"
-    sha256 "50fcbd8e420554d188c3e6e79d95ad36e67a43c1cc944a0da99ebfd0d6a0ac2a"
+    url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.21/herozion-linux-amd64"
+    sha256 "bb6f1e265aeedfa1682a79bf23aa31974fc7c1574ca46de749f7ba5389701d27"
   end
 
   def install
     if OS.mac?
+      # Homebrew auto-cd's into the tarball's single top-level directory during
+      # stage, so paths here are relative to herozion-macos-{arch}/.
       arch_binary = Hardware::CPU.intel? ? "herozion-macos-amd64" : "herozion-macos-arm64"
       libexec.install Dir["*"]
       bin.install_symlink libexec/arch_binary => "herozion"
