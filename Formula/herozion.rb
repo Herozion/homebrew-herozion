@@ -5,22 +5,22 @@
 class Herozion < Formula
   desc "Security audit and performance analysis CLI tool for developers"
   homepage "https://herozion.io"
-  version "1.2.21"
+  version "1.2.23"
   license "Proprietary"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.21/herozion-macos-amd64.tar.gz"
-      sha256 "d2bba8f4e864d0a3cb7311e0d0cd4a81b7a555ab8d22744240f8dd51c93c0abd"
+      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.23/herozion-macos-amd64.tar.gz"
+      sha256 "df7981b6866b82c98515a7d6006c29d57d572bf635db9f6ba7a3d054c56a1839"
     else
-      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.21/herozion-macos-arm64.tar.gz"
-      sha256 "88c3c7068816511cce9e8ab5674ba9d19324969e7fd1f6a3ebe6687be3be7bd5"
+      url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.23/herozion-macos-arm64.tar.gz"
+      sha256 "7f0f7f7c3aaeda112eca034d225de34fc4b5071736b65edce463fca0005deb73"
     end
   end
 
   on_linux do
-    url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.21/herozion-linux-amd64"
-    sha256 "bb6f1e265aeedfa1682a79bf23aa31974fc7c1574ca46de749f7ba5389701d27"
+    url "https://github.com/Herozion/scanner-releases/releases/download/v1.2.23/herozion-linux-amd64"
+    sha256 "c88b8c94b1dc3a3d893f9a88117e824a5928343c892265b58b177f71f675c50c"
   end
 
   def install
